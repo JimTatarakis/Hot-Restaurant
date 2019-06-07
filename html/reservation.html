@@ -86,7 +86,7 @@
     <script>
 
         //grabs reservation form data
-        $("#form-submit").on("click", function () {
+        $("#form-btn").on("click", function () {
             event.preventDefault();
 
             var newReservation = {
@@ -98,7 +98,7 @@
 
             console.log(newReservation);
 
-            $.post("/api/tables", newReservations, function(data){
+            $.post("/api/tables", newReservation, function(data){
 
                 if (data){
                     console.log ("Posted sucessfully")

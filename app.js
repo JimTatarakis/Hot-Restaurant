@@ -8,6 +8,9 @@ var path = require("path");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
 var reservations = [
     {
         name: "Yoda",
@@ -57,7 +60,7 @@ app.get("/api/tables", function (req, res) {
 })
 
 app.post("/api/tables", function(req, res){
-    console.log(req)
+reservations.push(req.body)
 })
 
 // Starts the server to begin listening
