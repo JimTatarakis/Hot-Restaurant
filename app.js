@@ -52,7 +52,13 @@ app.get("/reservation.html", function (req, res) {
     res.sendFile(path.join(__dirname, "html/reservation.html"));
 });
 
+app.get("/api/tables", function (req, res) {
+    res.json(reservations);
+})
 
+app.post("/api/tables", function(req, res){
+    console.log(req)
+})
 
 // Starts the server to begin listening
 // =============================================================

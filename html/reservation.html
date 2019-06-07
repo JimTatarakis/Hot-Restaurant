@@ -58,18 +58,46 @@
                 </div>
                 <div class="row">
                     <div class="col s3">
-                            <a class="waves-effect waves-light btn" id="form-btn">Submit</a>
+                        <a class="waves-effect waves-light btn" id="form-btn">Submit</a>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 
+
+
+
     <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <!--JavaScript at end of body for optimized loading-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <!-- custom -->
     <script>
+
+        //grabs reservation form data
+        $("#form-submit").on("click", function () {
+            event.preventDefault();
+
+            var newReservation = {
+                name: $("#first_name").val().trim(),
+                phone: $("#phone-num").val().trim(),
+                email: $("#email").val().trim(),
+                pin: $("#pin").val().trim()
+            }
+
+            console.log(newReservation);
+
+            $.post("/api/tables", newReservations, function(data){
+                
+                if (data){
+                    console.log ("Posted sucessfully")
+                }
+                else{
+                    console.log("Didn't work.")
+                }
+            })
+        })
 
     </script>
 </body>
