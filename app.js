@@ -40,11 +40,15 @@ app.get("/", function (req, res) {
     res.sendFile(path.join(__dirname, "html/home.html"));
 });
 
-app.get("/view", function (req, res) {
+app.get("/home.html", function (req, res) {
+    res.sendFile(path.join(__dirname, "html/home.html"));
+});
+
+app.get("/tables.html", function (req, res) {
     res.sendFile(path.join(__dirname, "html/tables.html"));
 });
 
-app.get("/make", function (req, res) {
+app.get("/reservation.html", function (req, res) {
     res.sendFile(path.join(__dirname, "html/reservation.html"));
 });
 
